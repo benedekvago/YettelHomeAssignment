@@ -1,0 +1,6 @@
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcuserdata/
+*.xcuserstate
+# Misc
+.DS_Store
