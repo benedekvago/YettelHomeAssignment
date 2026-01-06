@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FF30A5812F0C091400C748C3 /* ApiClient in Frameworks */ = {isa = PBXBuildFile; productRef = FF30A5802F0C091400C748C3 /* ApiClient */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FF12B0D02F0BD00000CD46DB /* YettelHomeAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YettelHomeAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF30A5812F0C091400C748C3 /* ApiClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = YettelHomeAssignment;
 			packageProductDependencies = (
+				FF30A5802F0C091400C748C3 /* ApiClient */,
 			);
 			productName = YettelHomeAssignment;
 			productReference = FF12B0D02F0BD00000CD46DB /* YettelHomeAssignment.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = FF12B0C72F0BD00000CD46DB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FF30A57F2F0C091400C748C3 /* XCLocalSwiftPackageReference "../ApiClient" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FF12B0D12F0BD00000CD46DB /* Products */;
 			projectDirPath = "";
@@ -324,6 +333,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		FF30A57F2F0C091400C748C3 /* XCLocalSwiftPackageReference "../ApiClient" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../ApiClient;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FF30A5802F0C091400C748C3 /* ApiClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ApiClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FF12B0C82F0BD00000CD46DB /* Project object */;
 }

@@ -10,12 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            YettelButton(title: "Vásárlás", style: .secondary) {
+                
+            }
+            .padding(16)
         }
-        .padding()
     }
 }
 
