@@ -13,7 +13,7 @@ struct ContentView: View {
             YettelButton(title: "Vásárlás", style: .secondary) {
                 
             }
-            .padding(16)
+            .padding(.horizontal, 16)
         }
     }
 }
