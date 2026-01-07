@@ -18,11 +18,11 @@ struct YettelCard<Content>: View where Content: View {
 
     var body: some View {
         content
-            .padding(16)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 26)
             .frame(maxWidth: .infinity)
-            .background(ComponentColors.secondaryBackgroundColor)
+            .background(ComponentColors.backgroundColor)
             .cornerRadius(cornerRadius)
-            .padding(16)
     }
 }
 

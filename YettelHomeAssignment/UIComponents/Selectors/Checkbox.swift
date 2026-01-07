@@ -29,6 +29,7 @@ struct Checkbox: View {
 
             if isSelected {
                 ComponentIcons.checkIcon
+                    .renderingMode(.template)
                     .foregroundColor(ComponentColors.darkGray)
                     .frame(width: 12, height: 12)
             }
@@ -38,7 +39,7 @@ struct Checkbox: View {
 
 #Preview {
     struct Preview: View {
-        @State var isSelected = false
+        @State var isSelected = true
         var body: some View {
             Checkbox(isSelected: $isSelected)
         }

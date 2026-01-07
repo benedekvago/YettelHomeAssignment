@@ -9,4 +9,5 @@ import SwiftUI
 
 enum ComponentIcons {
     static let checkIcon = Image("checkIcon")
+    static let rightArrowIcon = Image("rightArrowIcon")
 }
