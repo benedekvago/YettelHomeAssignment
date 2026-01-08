@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct RootView: View {
+    // Should be injected
+    @StateObject private var coordinator = AppCoordinator()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack(path: $coordinator.path) {
+            EmptyView()
+                .navigationDestination(for: AnyFlowRoute.self) { route in
+                    route.view()
+                        .toolbar(.hidden, for: .navigationBar)
+                }
+        }
+        .onAppear {
+            coordinator.start()
+        }
     }
 }
 

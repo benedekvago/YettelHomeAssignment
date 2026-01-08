@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-enum ComponentColors {
-    static let primaryColor = Color("darkBlue")
-    static let secondaryColor = Color("lightGray")
-    static let darkGray = Color("darkGray")
-    static let backgroundColor = Color("white")
-    static let secondaryBackgroundColor = Color("lightGreen")
+public enum ComponentColors {
+    public static let primaryColor = Color("darkBlueColor")
+    public static let secondaryColor = Color("somethingElse")
+    public static let darkGray = Color("something")
+    public static let backgroundColor = Color("asdas")
+    public static let secondaryBackgroundColor = Color("lightGreenColor")
 }
