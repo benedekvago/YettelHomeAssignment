@@ -21,6 +21,9 @@ struct RootView: View {
         }
         .onAppear {
             coordinator.start()
+            Task {
+                try? await VignetteSelectionService().fetchAvailableVignettes()
+            }
         }
     }
 }
