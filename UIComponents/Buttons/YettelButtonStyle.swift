@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct YettelButtonStyle: ButtonStyle {
-    enum Style {
+public struct YettelButtonStyle: ButtonStyle {
+    public enum Style {
         case primary
         case secondary
 
@@ -38,7 +38,7 @@ struct YettelButtonStyle: ButtonStyle {
     
     let buttonStyle: Style
     
-    func makeBody(configuration: Configuration) -> some View {
+    public func makeBody(configuration: Configuration) -> some View {
         let buttonConfiguration = buttonStyle.configuration()
         return configuration.label
             .foregroundStyle(buttonConfiguration.textColor)
@@ -51,7 +51,7 @@ struct YettelButtonStyle: ButtonStyle {
     }
 }
 
-extension View {
+public extension View {
     func yettelButtonStyle(_ style: YettelButtonStyle.Style) -> some View {
         self.buttonStyle(YettelButtonStyle(buttonStyle: style))
     }

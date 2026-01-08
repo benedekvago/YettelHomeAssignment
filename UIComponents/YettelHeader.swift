@@ -7,8 +7,13 @@
 
 import SwiftUI
 
-struct YettelHeader: View {
-    var body: some View {
+public struct YettelHeader: View {
+
+    public init() {
+        /* no-op */
+    }
+    
+    public var body: some View {
         HStack {
             Image(uiImage: .checkmark)
                 .renderingMode(.template)
@@ -30,6 +35,7 @@ struct YettelHeader: View {
                 )
             )
         )
+        .background(.clear)
     }
 }
 

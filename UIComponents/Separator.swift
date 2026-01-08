@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct Separator: View {
-    var body: some View {
+public struct Separator: View {
+    public init() {
+        /* no-op */
+    }
+    public var body: some View {
         Rectangle()
             .fill(ComponentColors.secondaryColor)
             .frame(height: 1)

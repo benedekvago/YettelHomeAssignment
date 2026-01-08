@@ -8,12 +8,23 @@
 import SwiftUI
 
 final class VignetteSelectionFlowCoordinator: VignetteSelectionFlowCoordinatorProtocol {
-    func start() {}
+    private var viewModel: VignetteSelectionFlowViewModel!
+    
+    func start(vignetteSelectionService: VignetteSelectionServiceProtocol) {
+        // Register dependencies
+        viewModel = VignetteSelectionFlowViewModel(vignetteSelectionService: vignetteSelectionService, coordinator: self)
+    }
+    
+    func pushShireView() {
+        
+    }
 }
 
 // MARK: FlowProtocol
 extension VignetteSelectionFlowCoordinator {
     func getFirstView() -> some View {
-        CountryVignetteSelectionView()
+        CountryVignetteSelectionView(
+            viewModel: viewModel
+        )
     }
 }

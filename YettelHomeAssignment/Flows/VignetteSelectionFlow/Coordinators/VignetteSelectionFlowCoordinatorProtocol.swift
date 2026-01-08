@@ -6,5 +6,6 @@
 //
 
 protocol VignetteSelectionFlowCoordinatorProtocol: FlowProtocol {
-    func start()
+    func start(vignetteSelectionService: VignetteSelectionServiceProtocol)
+    func pushShireView()
 }

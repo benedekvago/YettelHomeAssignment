@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-struct NavigationBox: View {
+public struct NavigationBox: View {
     let title: String
-    var body: some View {
+    
+    public init(title: String) {
+        self.title = title
+    }
+    
+    public var body: some View {
         YettelCard(cornerRadius: 16) {
             HStack {
                 YettelLabel(text: title)

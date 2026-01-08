@@ -7,11 +7,18 @@
 
 import SwiftUI
 
-struct YettelButton: View {
+public struct YettelButton: View {
     let title: String
     let style: YettelButtonStyle.Style
     let action: () -> Void
-    var body: some View {
+    
+    public init(title: String, style: YettelButtonStyle.Style, action: @escaping () -> Void) {
+        self.title = title
+        self.style = style
+        self.action = action
+    }
+    
+    public var body: some View {
         Button (action: action) {
             Text(title)
                 .padding(16)

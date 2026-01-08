@@ -8,6 +8,8 @@
 import SwiftUI
 
 enum ComponentIcons {
-    static let checkIcon = Image("checkIcon")
-    static let rightArrowIcon = Image("rightArrowIcon")
+    private static let bundle = Bundle(for: BundleToken.self)
+
+    static let checkIcon = Image("checkIcon", bundle: bundle)
+    static let rightArrowIcon = Image("rightArrowIcon", bundle: bundle)
 }

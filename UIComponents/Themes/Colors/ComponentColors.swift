@@ -8,9 +8,11 @@
 import SwiftUI
 
 public enum ComponentColors {
-    public static let primaryColor = Color("darkBlueColor")
-    public static let secondaryColor = Color("somethingElse")
-    public static let darkGray = Color("something")
-    public static let backgroundColor = Color("asdas")
-    public static let secondaryBackgroundColor = Color("lightGreenColor")
+    private static let bundle = Bundle(for: BundleToken.self)
+
+    public static let primaryColor = Color("darkBlueColor", bundle: bundle)
+    public static let secondaryColor = Color("somethingElse", bundle: bundle)
+    public static let darkGray = Color("something", bundle: bundle)
+    public static let backgroundColor = Color("asdas", bundle: bundle)
+    public static let secondaryBackgroundColor = Color("lightGreenColor", bundle: bundle)
 }

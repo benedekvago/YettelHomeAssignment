@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct YettelCard<Content>: View where Content: View {
+public struct YettelCard<Content>: View where Content: View {
     let cornerRadius: CGFloat
     let content: Content
     
-    init(cornerRadius: CGFloat = 8, @ViewBuilder content: () -> Content) {
+    public init(cornerRadius: CGFloat = 8, @ViewBuilder content: () -> Content) {
         self.cornerRadius = cornerRadius
         self.content = content()
     }
 
-    var body: some View {
+    public var body: some View {
         content
             .padding(.horizontal, 16)
             .padding(.vertical, 26)

@@ -14,6 +14,7 @@ final class AppCoordinator: ObservableObject {
     private let purchaseConfimationFlow: any PurchaseConfirmationFlowCoordinatorProtocol = PurchaseConfirmationFlowCoordinator()
     
     func start() {
+        vignetteSelectionFlow.start(vignetteSelectionService: VignetteSelectionService())
         if path.isEmpty {
             startVignetteSelectionFlow()
         }

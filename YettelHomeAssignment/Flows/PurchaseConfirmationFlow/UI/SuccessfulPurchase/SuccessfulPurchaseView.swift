@@ -6,10 +6,19 @@
 //
 
 import SwiftUI
+import UIComponents
 
 struct SuccessfulPurchaseView: View {
     var body: some View {
-        Text("SuccessfulPurchaseView")
+        VStack {
+            Spacer()
+            YettelLabel(text: "A matricákat sikeresen kifizetted!")
+            Spacer()
+            YettelButton(title: "Rendben", style: .primary) {
+                
+            }
+        }
+        .background(.green)
     }
 }
 
