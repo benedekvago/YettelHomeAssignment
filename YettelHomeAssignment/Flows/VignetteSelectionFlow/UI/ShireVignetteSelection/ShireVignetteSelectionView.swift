@@ -19,6 +19,7 @@ struct ShireVignetteSelectionView: View {
             }
             ScrollView {
                 VStack(alignment: .leading, spacing: Constants.largeSpacing) {
+                    MapView(selectedVignettes: viewModel.selectedShireVignettes)
                     Group {
                         groupView
                     }
