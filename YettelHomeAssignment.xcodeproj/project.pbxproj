@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF30A5812F0C091400C748C3 /* ApiClient in Frameworks */ = {isa = PBXBuildFile; productRef = FF30A5802F0C091400C748C3 /* ApiClient */; };
 		FF30A5F42F0EABE300C748C3 /* UIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF30A5DB2F0EAADD00C748C3 /* UIComponents.framework */; };
 		FF30A5F52F0EABE300C748C3 /* UIComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF30A5DB2F0EAADD00C748C3 /* UIComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF30A7222F11268900C748C3 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = FF30A7212F11268900C748C3 /* Factory */; };
+		FF30A72A2F112FD100C748C3 /* ApiClient in Frameworks */ = {isa = PBXBuildFile; productRef = FF30A7292F112FD100C748C3 /* ApiClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF30A72A2F112FD100C748C3 /* ApiClient in Frameworks */,
 				FF30A7222F11268900C748C3 /* Factory in Frameworks */,
 				FF30A5F42F0EABE300C748C3 /* UIComponents.framework in Frameworks */,
-				FF30A5812F0C091400C748C3 /* ApiClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +136,7 @@
 			packageProductDependencies = (
 				FF30A5802F0C091400C748C3 /* ApiClient */,
 				FF30A7212F11268900C748C3 /* Factory */,
+				FF30A7292F112FD100C748C3 /* ApiClient */,
 			);
 			productName = YettelHomeAssignment;
 			productReference = FF12B0D02F0BD00000CD46DB /* YettelHomeAssignment.app */;
@@ -192,8 +193,8 @@
 			mainGroup = FF12B0C72F0BD00000CD46DB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				FF30A57F2F0C091400C748C3 /* XCLocalSwiftPackageReference "../ApiClient" */,
 				FF30A7202F11267700C748C3 /* XCRemoteSwiftPackageReference "Factory" */,
+				FF30A7282F112FD100C748C3 /* XCLocalSwiftPackageReference "ApiClient" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FF12B0D12F0BD00000CD46DB /* Products */;
@@ -535,9 +536,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		FF30A57F2F0C091400C748C3 /* XCLocalSwiftPackageReference "../ApiClient" */ = {
+		FF30A7282F112FD100C748C3 /* XCLocalSwiftPackageReference "ApiClient" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../ApiClient;
+			relativePath = ApiClient;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -561,6 +562,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF30A7202F11267700C748C3 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		FF30A7292F112FD100C748C3 /* ApiClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ApiClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
