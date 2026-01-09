@@ -21,6 +21,13 @@
 			remoteGlobalIDString = FF30A5DA2F0EAADD00C748C3;
 			remoteInfo = UIComponents;
 		};
+		FF30A74D2F11340000C748C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF12B0C82F0BD00000CD46DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF12B0CF2F0BD00000CD46DB;
+			remoteInfo = YettelHomeAssignment;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +47,7 @@
 /* Begin PBXFileReference section */
 		FF12B0D02F0BD00000CD46DB /* YettelHomeAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YettelHomeAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF30A5DB2F0EAADD00C748C3 /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF30A7492F11340000C748C3 /* YettelHomeAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YettelHomeAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -51,6 +59,11 @@
 		FF30A5DC2F0EAADD00C748C3 /* UIComponents */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		FF30A74A2F11340000C748C3 /* YettelHomeAssignmentTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = YettelHomeAssignmentTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -73,6 +86,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF30A7462F11340000C748C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,6 +101,7 @@
 			children = (
 				FF12B0D22F0BD00000CD46DB /* YettelHomeAssignment */,
 				FF30A5DC2F0EAADD00C748C3 /* UIComponents */,
+				FF30A74A2F11340000C748C3 /* YettelHomeAssignmentTests */,
 				FF30A5F32F0EABE300C748C3 /* Frameworks */,
 				FF12B0D12F0BD00000CD46DB /* Products */,
 			);
@@ -91,6 +112,7 @@
 			children = (
 				FF12B0D02F0BD00000CD46DB /* YettelHomeAssignment.app */,
 				FF30A5DB2F0EAADD00C748C3 /* UIComponents.framework */,
+				FF30A7492F11340000C748C3 /* YettelHomeAssignmentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,6 +187,29 @@
 			productReference = FF30A5DB2F0EAADD00C748C3 /* UIComponents.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		FF30A7482F11340000C748C3 /* YettelHomeAssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF30A74F2F11340000C748C3 /* Build configuration list for PBXNativeTarget "YettelHomeAssignmentTests" */;
+			buildPhases = (
+				FF30A7452F11340000C748C3 /* Sources */,
+				FF30A7462F11340000C748C3 /* Frameworks */,
+				FF30A7472F11340000C748C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF30A74E2F11340000C748C3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FF30A74A2F11340000C748C3 /* YettelHomeAssignmentTests */,
+			);
+			name = YettelHomeAssignmentTests;
+			packageProductDependencies = (
+			);
+			productName = YettelHomeAssignmentTests;
+			productReference = FF30A7492F11340000C748C3 /* YettelHomeAssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -180,6 +225,11 @@
 					};
 					FF30A5DA2F0EAADD00C748C3 = {
 						CreatedOnToolsVersion = 16.3;
+					};
+					FF30A7482F11340000C748C3 = {
+						CreatedOnToolsVersion = 16.3;
+						LastSwiftMigration = 1630;
+						TestTargetID = FF12B0CF2F0BD00000CD46DB;
 					};
 				};
 			};
@@ -203,6 +253,7 @@
 			targets = (
 				FF12B0CF2F0BD00000CD46DB /* YettelHomeAssignment */,
 				FF30A5DA2F0EAADD00C748C3 /* UIComponents */,
+				FF30A7482F11340000C748C3 /* YettelHomeAssignmentTests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,6 +267,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FF30A5D92F0EAADD00C748C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF30A7472F11340000C748C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,6 +297,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF30A7452F11340000C748C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -246,6 +311,11 @@
 			isa = PBXTargetDependency;
 			target = FF30A5DA2F0EAADD00C748C3 /* UIComponents */;
 			targetProxy = FF30A5F62F0EABE400C748C3 /* PBXContainerItemProxy */;
+		};
+		FF30A74E2F11340000C748C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF12B0CF2F0BD00000CD46DB /* YettelHomeAssignment */;
+			targetProxy = FF30A74D2F11340000C748C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -503,6 +573,45 @@
 			};
 			name = Release;
 		};
+		FF30A7502F11340000C748C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y44L8LQJZL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hiflylabs.vagobenedek.YettelHomeAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YettelHomeAssignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/YettelHomeAssignment";
+			};
+			name = Debug;
+		};
+		FF30A7512F11340000C748C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y44L8LQJZL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hiflylabs.vagobenedek.YettelHomeAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YettelHomeAssignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/YettelHomeAssignment";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -529,6 +638,15 @@
 			buildConfigurations = (
 				FF30A5E02F0EAADD00C748C3 /* Debug */,
 				FF30A5E12F0EAADD00C748C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF30A74F2F11340000C748C3 /* Build configuration list for PBXNativeTarget "YettelHomeAssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF30A7502F11340000C748C3 /* Debug */,
+				FF30A7512F11340000C748C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
