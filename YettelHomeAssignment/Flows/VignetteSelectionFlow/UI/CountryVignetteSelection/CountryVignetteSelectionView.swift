@@ -16,7 +16,7 @@ struct CountryVignetteSelectionView: View {
             VStack(spacing: Constants.smallSpacing) {
                 YettelCard {
                     HStack {
-                        Image("carIcon")
+                        Assets.carIcon
                             .renderingMode(.template)
                             .frame(width: Constants.iconSize, height: Constants.iconSize)
                             .padding(.horizontal, Constants.normalSpacing)
@@ -75,7 +75,7 @@ struct CountryVignetteSelectionView: View {
             }
             .padding(.horizontal, Constants.normalSpacing)
         }
-        .background(Color("background"))
+        .background(Assets.background)
         .safeAreaInset(edge: .top) {
             YettelHeader(title: Localizable.headerTitle) {
                 viewModel.popView()

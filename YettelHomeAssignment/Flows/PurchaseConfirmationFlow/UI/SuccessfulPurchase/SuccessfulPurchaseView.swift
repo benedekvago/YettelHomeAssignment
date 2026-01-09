@@ -13,7 +13,7 @@ struct SuccessfulPurchaseView: View {
 
     var body: some View {
         ZStack {
-            Color("successBackground")
+            Assets.successBackground
                 .ignoresSafeArea()
             VStack(spacing: Constants.largeSpacing) {
                 Spacer()
@@ -24,7 +24,7 @@ struct SuccessfulPurchaseView: View {
                 .padding(.horizontal, Constants.largeSpacing)
                 HStack {
                     Spacer()
-                    Image("pictogram")
+                    Assets.pictogram
                 }
                 YettelButton(title: Localizable.ok, style: .primary) {
                     Task {
@@ -34,7 +34,7 @@ struct SuccessfulPurchaseView: View {
                 .padding(.horizontal, Constants.largeSpacing)
             }
             VStack {
-                Image("confetti")
+                Assets.confetti
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity)
