@@ -7,17 +7,34 @@
 
 import SwiftUI
 
-struct Checkbox: View {
-    @Binding var isSelected: Bool
+public struct Checkbox: View {
+    var isSelected: Bool
+    var size: CGFloat
+    var borderWidth: CGFloat
+    var cornerRadius: CGFloat
+    var selectedColor: Color
+    var unselectedColor: Color
+    var borderColor: Color
+    
+    public init(
+        isSelected: Bool,
+        size: CGFloat = 20,
+        borderWidth: CGFloat = 2,
+        cornerRadius: CGFloat = 4,
+        selectedColor: Color = ComponentColors.secondaryColor,
+        unselectedColor: Color = .clear,
+        borderColor: Color = ComponentColors.secondaryColor
+    ) {
+        self.isSelected = isSelected
+        self.size = size
+        self.borderWidth = borderWidth
+        self.cornerRadius = cornerRadius
+        self.selectedColor = selectedColor
+        self.unselectedColor = unselectedColor
+        self.borderColor = borderColor
+    }
 
-    var size: CGFloat = 20
-    var borderWidth: CGFloat = 2
-    var cornerRadius: CGFloat = 4
-    var selectedColor: Color = ComponentColors.secondaryColor
-    var unselectedColor: Color = .clear
-    var borderColor: Color = ComponentColors.secondaryColor
-
-    var body: some View {
+    public var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: cornerRadius)
                 .strokeBorder(borderColor, lineWidth: borderWidth)
@@ -35,15 +52,4 @@ struct Checkbox: View {
             }
         }
     }
-}
-
-#Preview {
-    struct Preview: View {
-        @State var isSelected = true
-        var body: some View {
-            Checkbox(isSelected: $isSelected)
-        }
-    }
-
-    return Preview()
 }

@@ -12,4 +12,5 @@ enum ComponentIcons {
 
     static let checkIcon = Image("checkIcon", bundle: bundle)
     static let rightArrowIcon = Image("rightArrowIcon", bundle: bundle)
+    static let leftArrowIcon = Image("leftArrowIcon", bundle: bundle)
 }

@@ -5,4 +5,10 @@
 //  Created by Vágó Benedek on 2026. 01. 08..
 //
 
-protocol ParentFlowProtocol {}
+import SwiftUI
+
+protocol ParentFlowProtocol {
+    func pushView(view: some View)
+    func popView()
+    func popToRoot()
+}

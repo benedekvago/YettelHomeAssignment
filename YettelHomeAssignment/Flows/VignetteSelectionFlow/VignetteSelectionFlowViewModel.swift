@@ -6,25 +6,51 @@
 //
 
 import Combine
+import Foundation
 
 class VignetteSelectionFlowViewModel: ObservableObject {
     private let vignetteSelectionService: VignetteSelectionServiceProtocol
     // Should be a different protocol
     private let coordinator: any VignetteSelectionFlowCoordinatorProtocol
     
-    private var vehicle: Vehicle? {
+    @Published var vehicle: Vehicle?
+    
+    var countryVignettes: [Vignette]? {
+        guard let vignettes else { return nil }
+        return vignettes.filter { vignette in
+            switch vignette.type {
+            case .country:
+                return true
+            default:
+                return false
+            }
+        }
+    }
+    
+    @Published var selectedCountryVignette: Vignette?
+    
+    var shireVignettes: [Vignette]? {
+        guard let vignettes else { return nil }
+        return vignettes.filter { vignette in
+            switch vignette.type {
+            case .shire:
+                return true
+            default:
+                return false
+            }
+        }
+    }
+    
+    @Published var selectedShireVignettes: [Vignette] = []
+    
+    private var vignettes: [Vignette]? {
         didSet {
-            // .receiveOn should be used here somehow
             objectWillChange.send()
         }
     }
     
-    var ownerName: String {
-        vehicle?.owner ?? ""
-    }
-
-    var plate: String {
-        vehicle?.plate ?? ""
+    var shireVignettesPrice: Decimal {
+        selectedShireVignettes.reduce(0) { $0 + $1.price }
     }
     
     init(vignetteSelectionService: VignetteSelectionServiceProtocol, coordinator: any VignetteSelectionFlowCoordinatorProtocol) {
@@ -32,12 +58,45 @@ class VignetteSelectionFlowViewModel: ObservableObject {
         self.coordinator = coordinator
     }
     
+    func didSelectContryVignette(vignette: Vignette) {
+        selectedCountryVignette = vignette
+    }
+    
+    func didTapShireVignette(vignette: Vignette) {
+        if let index = selectedShireVignettes.firstIndex(of: vignette) {
+            selectedShireVignettes.remove(at: index)
+        } else {
+            selectedShireVignettes.append(vignette)
+        }
+    }
+    
     func loadVignettes() async {
         let vehicle = try? await vignetteSelectionService.fetchVehicle()
-        self.vehicle = vehicle
+        let vignettes = try? await vignetteSelectionService.fetchAvailableVignettes()
+        await MainActor.run {
+            self.vehicle = vehicle
+            self.vignettes = vignettes
+            if selectedCountryVignette == nil {
+                self.selectedCountryVignette = countryVignettes?.first
+            }
+        }
     }
     
     func openShireView() {
         coordinator.pushShireView()
+    }
+    
+    func startCountryPurcahseConfirmationFlow() {
+        guard let vehicle, let selectedCountryVignette else { return }
+        coordinator.startPurcahseConfirmationFlow(vehicle: vehicle, vignettes: [selectedCountryVignette])
+    }
+    
+    func startShirePurcahseConfirmationFlow() {
+        guard let vehicle, !selectedShireVignettes.isEmpty else { return }
+        coordinator.startPurcahseConfirmationFlow(vehicle: vehicle, vignettes: selectedShireVignettes)
+    }
+    
+    func popView() {
+        coordinator.popView()
     }
 }

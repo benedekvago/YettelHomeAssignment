@@ -8,16 +8,22 @@
 import SwiftUI
 
 public struct YettelHeader: View {
+    
+    let action: () -> Void
 
-    public init() {
-        /* no-op */
+    public init(action: @escaping () -> Void) {
+        self.action = action
     }
     
     public var body: some View {
         HStack {
-            Image(uiImage: .checkmark)
+            ComponentIcons.leftArrowIcon
                 .renderingMode(.template)
-            Text("E-matrica")
+                .frame(width: 24, height: 24)
+                .onTapGesture {
+                    action()
+                }
+            YettelLabel(text: "E-matrica", fontWeight: .bold)
         }
         .padding(.leading, 24)
         .foregroundStyle(ComponentColors.primaryColor)
@@ -35,10 +41,5 @@ public struct YettelHeader: View {
                 )
             )
         )
-        .background(.clear)
     }
-}
-
-#Preview {
-    YettelHeader()
 }

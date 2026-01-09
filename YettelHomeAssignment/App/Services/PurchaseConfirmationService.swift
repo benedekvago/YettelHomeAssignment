@@ -23,6 +23,6 @@ final class PurchaseConfirmationService: PurchaseConfirmationServiceProtocol {
             highwayOrders: [order1]
         )
         let body = Operations.postHighwayOrder.Input.Body.json(payload)
-        try! await apiClient.postHighwayOrder(body: body)
+        let _ = try! await apiClient.postHighwayOrder(body: body)
     }
 }

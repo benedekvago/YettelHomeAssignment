@@ -14,25 +14,60 @@ final class AppCoordinator: ObservableObject {
     private let purchaseConfimationFlow: any PurchaseConfirmationFlowCoordinatorProtocol = PurchaseConfirmationFlowCoordinator()
     
     func start() {
-        vignetteSelectionFlow.start(vignetteSelectionService: VignetteSelectionService())
+        vignetteSelectionFlow.start(
+            vignetteSelectionService: VignetteSelectionService(),
+            parentCoordinator: self
+        )
         if path.isEmpty {
             startVignetteSelectionFlow()
         }
     }
 }
 
+// MARK: ParentFlowProtocol
+extension AppCoordinator: ParentFlowProtocol {
+    func pushView(view: some View) {
+        path.append(AnyFlowRoute {
+            AnyView(
+                view
+            )
+        })
+    }
+    
+    func popView() {
+        if path.count <= 1 { return }
+        path.removeLast()
+    }
+    
+    func popToRoot() {
+        if path.isEmpty { return }
+        let viewsToRoot = path.count-1
+        path.removeLast(viewsToRoot)
+    }
+}
+
 // MARK: VignetteSelectionParentCoordinatorProtocol
-extension AppCoordinator: VignetteSelectionParentCoordinatorProtocol {}
+extension AppCoordinator: VignetteSelectionParentCoordinatorProtocol {
+    func startPurcahseConfirmationFlow(vehicle: Vehicle, vignettes: [Vignette]) {
+        let (purchaseInfo, purchaseItems) = VignetteToPurchaseMapper.map(vehicle: vehicle, vignettes: vignettes)
+        purchaseConfimationFlow.start(
+            purchaseInfo: purchaseInfo,
+            purchaseItems: purchaseItems,
+            purchaseConfirmationService: PurchaseConfirmationService(),
+            parentCoordinator: self
+        )
+        startPurchaseConfimationFlow()
+    }
+}
 
 // MARK: PurcahseConfirmationParentCoordinatorProtocol
-extension AppCoordinator: PurcahseConfirmationParentCoordinatorProtocol {}
+extension AppCoordinator: PurchaseConfirmationParentCoordinatorProtocol {}
 
 // MARK: Helpers
 private extension AppCoordinator {
     func startVignetteSelectionFlow() {
         path.append(AnyFlowRoute {
-            return AnyView(
-                // Could this lead to memory leak?
+            AnyView(
                 self.vignetteSelectionFlow.getFirstView()
             )
         })
@@ -40,8 +75,7 @@ private extension AppCoordinator {
 
     func startPurchaseConfimationFlow() {
         path.append(AnyFlowRoute {
-            return AnyView(
-                // Could this lead to memory leak?
+            AnyView(
                 self.purchaseConfimationFlow.getFirstView()
             )
         })

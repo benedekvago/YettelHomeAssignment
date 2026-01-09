@@ -6,5 +6,13 @@
 //
 
 protocol PurchaseConfirmationFlowCoordinatorProtocol: FlowProtocol {
-    func start()
+    func start(
+        purchaseInfo: [PurchaseInfo],
+        purchaseItems: [PurchaseItem],
+        purchaseConfirmationService: PurchaseConfirmationServiceProtocol,
+        parentCoordinator: PurchaseConfirmationParentCoordinatorProtocol
+    )
+    func pushSuccessView()
+    func popView()
+    func finishFlow()
 }

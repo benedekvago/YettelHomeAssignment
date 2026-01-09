@@ -7,32 +7,23 @@
 
 import SwiftUI
 
-struct MultiSelectComponent: View {
-    @Binding var isSelected: Bool
+public struct MultiSelectComponent: View {
+    let isSelected: Bool
     let title: String
     let additionalInfo: String
+    
+    public init(isSelected: Bool, title: String, additionalInfo: String) {
+        self.isSelected = isSelected
+        self.title = title
+        self.additionalInfo = additionalInfo
+    }
 
-    var body: some View {
+    public var body: some View {
         HStack {
-            Checkbox(isSelected: $isSelected)
-            YettelLabel(text: title, color: isSelected ? ComponentColors.darkGray :  ComponentColors.primaryColor)
+            Checkbox(isSelected: isSelected)
+            YettelLabel(text: title, fontWeight: .light, color: isSelected ? ComponentColors.darkGray :  ComponentColors.primaryColor)
             Spacer()
-            YettelLabel(text: additionalInfo)
+            YettelLabel(text: additionalInfo, fontWeight: .bold)
         }
     }
-}
-
-#Preview {
-    struct Preview: View {
-        @State var isSelected = true
-        var body: some View {
-            MultiSelectComponent(
-                isSelected: $isSelected,
-                title: "Baranya",
-                additionalInfo: "5450 Ft"
-            )
-        }
-    }
-
-    return Preview()
 }

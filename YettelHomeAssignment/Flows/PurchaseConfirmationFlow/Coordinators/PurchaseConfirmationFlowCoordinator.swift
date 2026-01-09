@@ -8,12 +8,47 @@
 import SwiftUI
 
 final class PurchaseConfirmationFlowCoordinator: PurchaseConfirmationFlowCoordinatorProtocol {
-    func start() {}
+    
+    private var viewModel: PurchaseConfirmationFlowViewModel!
+    private var parentCoordinator: PurchaseConfirmationParentCoordinatorProtocol!
+    
+    func start(
+        purchaseInfo: [PurchaseInfo],
+        purchaseItems: [PurchaseItem],
+        purchaseConfirmationService: PurchaseConfirmationServiceProtocol,
+        parentCoordinator: PurchaseConfirmationParentCoordinatorProtocol
+    ) {
+        viewModel = PurchaseConfirmationFlowViewModel(
+            purchaseInfo: purchaseInfo,
+            purchaseItems: purchaseItems,
+            purchaseConfirmationService: purchaseConfirmationService,
+            coordinator: self
+        )
+        self.parentCoordinator = parentCoordinator
+    }
+    
+    func pushSuccessView() {
+        parentCoordinator.pushView(
+            view: SuccessfulPurchaseView(
+                viewModel: viewModel
+            )
+        )
+    }
+    
+    func popView() {
+        parentCoordinator.popView()
+    }
+    
+    func finishFlow() {
+        parentCoordinator.popToRoot()
+    }
 }
 
 // MARK: FlowProtocol
 extension PurchaseConfirmationFlowCoordinator {
     func getFirstView() -> some View {
-        ConfirmationView()
+        ConfirmationView(
+            viewModel: viewModel
+        )
     }
 }

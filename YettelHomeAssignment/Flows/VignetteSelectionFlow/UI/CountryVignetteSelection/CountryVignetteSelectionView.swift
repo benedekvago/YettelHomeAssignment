@@ -9,40 +9,72 @@ import UIComponents
 import SwiftUI
 
 struct CountryVignetteSelectionView: View {
-    
-    // This could be a protocol for this view
     @ObservedObject var viewModel: VignetteSelectionFlowViewModel
-    
+
     var body: some View {
-        VStack(spacing: 0) {
-            YettelHeader()
-            ScrollView {
-                VStack {
-                    YettelCard {
-                        HStack {
-                            Image(uiImage: .actions)
-                            VStack {
-                                Text(viewModel.plate)
-                                Text(viewModel.ownerName)
-                            }
+        ScrollView {
+            VStack(spacing: 12) {
+                YettelCard {
+                    HStack {
+                        Image("carIcon")
+                            .renderingMode(.template)
+                            .frame(width: 24, height: 24)
+                            .padding(.horizontal, 16)
+                        VStack(alignment: .leading) {
+                            YettelLabel(
+                                text: viewModel.vehicle?.plate ?? "",
+                                fontWeight: .regular,
+                            )
+                            YettelLabel(
+                                text: viewModel.vehicle?.owner ?? "",
+                                fontSize: 12,
+                                fontWeight: .light,
+                            )
                         }
+                        Spacer()
                     }
-                    YettelCard {
-                        VStack {
-                            YettelLabel(text: "Országos matricák")
-                            YettelButton(title: "Vásárlás", style: .primary) {
-                                
-                            }
-                        }
-                    }
-                    NavigationBox(title: "Éves vármegyei matricák")
-                        .onTapGesture {
-                            viewModel.openShireView()
-                        }
                 }
+
+                YettelCard {
+                    VStack(alignment: .leading) {
+                        YettelLabel(
+                            text: "Országos matricák",
+                            fontSize: 20,
+                            fontWeight: .bold
+                        )
+
+                        if let countryVignettes = viewModel.countryVignettes {
+                            ForEach(countryVignettes, id: \.self) { vignette in
+                                SingleSelectComponent(
+                                    isSelected: viewModel.selectedCountryVignette == vignette,
+                                    title: vignette.name,
+                                    additionalInfo: "\(vignette.price) Ft"
+                                )
+                                .onTapGesture {
+                                    viewModel.didSelectContryVignette(vignette: vignette)
+                                }
+                            }
+                        }
+
+                        YettelButton(title: "Vásárlás", style: .primary) {
+                            viewModel.startCountryPurcahseConfirmationFlow()
+                        }
+                    }
+                }
+
+                NavigationBox(title: "Éves vármegyei matricák")
+                    .onTapGesture {
+                        viewModel.openShireView()
+                    }
+            }
+            .padding(.horizontal, 16)
+        }
+        .background(Color("background"))
+        .safeAreaInset(edge: .top) {               // 👈 attach header here
+            YettelHeader {
+                viewModel.popView()
             }
         }
-        .background(.gray)
         .onAppear {
             Task {
                 await viewModel.loadVignettes()

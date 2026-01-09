@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct RadioButton: View {
-    @Binding var isSelected: Bool
-    
-    // Configurable properties
+    var isSelected: Bool
     var size: CGFloat = 28
     var borderWidth: CGFloat = 2
     var selectedColor: Color = ComponentColors.primaryColor
@@ -36,15 +32,4 @@ struct RadioButton: View {
             }
         }
     }
-}
-
-#Preview {
-    struct Preview: View {
-        @State var isSelected = true
-        var body: some View {
-            RadioButton(isSelected: $isSelected)
-        }
-    }
-
-    return Preview()
 }

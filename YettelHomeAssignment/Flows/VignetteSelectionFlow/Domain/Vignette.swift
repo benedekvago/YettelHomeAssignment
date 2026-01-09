@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct Vignette {
-    enum CountryType {
+struct Vignette: Hashable {
+    enum CountryType: Hashable {
         case day
         case week
         case month
         case year
     }
     
-    enum ShireType {
+    enum ShireType: Hashable {
         case backKiskun
         case baranya
         case bekes
@@ -37,10 +37,11 @@ struct Vignette {
         case zala
     }
     
-    enum VignetteType {
+    enum VignetteType: Hashable {
         case country(CountryType)
         case shire(ShireType)
     }
+    
     let name: String
     let price: Decimal
     let type: VignetteType

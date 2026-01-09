@@ -5,4 +5,6 @@
 //  Created by Vágó Benedek on 2026. 01. 07..
 //
 
-protocol VignetteSelectionParentCoordinatorProtocol {}
+protocol VignetteSelectionParentCoordinatorProtocol: ParentFlowProtocol {
+    func startPurcahseConfirmationFlow(vehicle: Vehicle, vignettes: [Vignette])
+}

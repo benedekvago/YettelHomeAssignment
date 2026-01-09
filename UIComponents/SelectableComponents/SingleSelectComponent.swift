@@ -7,14 +7,21 @@
 
 import SwiftUI
 
-struct SingleSelectComponent: View {
-    @Binding var isSelected: Bool
+public struct SingleSelectComponent: View {
+    let isSelected: Bool
     let title: String
     let additionalInfo: String
-    var body: some View {
+    
+    public init(isSelected: Bool, title: String, additionalInfo: String) {
+        self.isSelected = isSelected
+        self.title = title
+        self.additionalInfo = additionalInfo
+    }
+    
+    public var body: some View {
         YettelCard {
             HStack {
-                RadioButton(isSelected: $isSelected)
+                RadioButton(isSelected: isSelected)
                 YettelLabel(text: title)
                 Spacer()
                 YettelLabel(text: additionalInfo)
@@ -26,19 +33,4 @@ struct SingleSelectComponent: View {
                                 .stroke(borderColor, lineWidth: 2)
         }
     }
-}
-
-#Preview {
-    struct Preview: View {
-        @State var isSelected = true
-        var body: some View {
-            SingleSelectComponent(
-                isSelected: $isSelected,
-                title: "Baranya",
-                additionalInfo: "5450 Ft"
-            )
-        }
-    }
-
-    return Preview()
 }

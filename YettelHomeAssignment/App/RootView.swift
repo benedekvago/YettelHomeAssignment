@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import ApiClient
+import OpenAPIURLSession
 
 struct RootView: View {
     // Should be injected
@@ -21,9 +23,6 @@ struct RootView: View {
         }
         .onAppear {
             coordinator.start()
-            Task {
-                try? await VignetteSelectionService().fetchAvailableVignettes()
-            }
         }
     }
 }

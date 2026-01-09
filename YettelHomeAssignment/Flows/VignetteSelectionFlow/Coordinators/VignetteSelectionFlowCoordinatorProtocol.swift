@@ -6,6 +6,8 @@
 //
 
 protocol VignetteSelectionFlowCoordinatorProtocol: FlowProtocol {
-    func start(vignetteSelectionService: VignetteSelectionServiceProtocol)
+    func start(vignetteSelectionService: VignetteSelectionServiceProtocol, parentCoordinator: VignetteSelectionParentCoordinatorProtocol)
     func pushShireView()
+    func startPurcahseConfirmationFlow(vehicle: Vehicle, vignettes: [Vignette])
+    func popView()
 }

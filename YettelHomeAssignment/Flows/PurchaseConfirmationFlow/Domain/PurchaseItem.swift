@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PurchaseItem {
+struct PurchaseItem: Hashable {
     let name: String
     let price: Decimal
 }
