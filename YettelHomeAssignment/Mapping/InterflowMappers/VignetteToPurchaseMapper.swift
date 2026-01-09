@@ -12,8 +12,8 @@ final class VignetteToPurchaseMapper {
         }
         
         let purchaseInfo = [
-            PurchaseInfo(title: "Rendszám", detail: vehicle.plate),
-            PurchaseInfo(title: "Matrica típusa", detail: firstVignette.type.title)
+            PurchaseInfo(title: Localizable.plate, detail: vehicle.plate),
+            PurchaseInfo(title: Localizable.vignetteType, detail: firstVignette.type.title)
         ]
         
         let purchaseItems = vignettes.map { vignette in
@@ -27,9 +27,9 @@ extension Vignette.VignetteType {
     var title: String {
         switch self {
             case .country:
-            return "Országos matrica"
+            return Localizable.countryVignette
         case .shire:
-            return "Éves vármegyei"
+            return Localizable.shireVignette
         }
     }
 }

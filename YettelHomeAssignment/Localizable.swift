@@ -21,6 +21,10 @@ enum Localizable {
     static let countryVignetteWeek = String(localized: "country_vignette_week")
     static let countryVignetteMonth = String(localized: "country_vignette_month")
     static let countryVignetteYear = String(localized: "country_vignette_year")
+    static let plate = String(localized: "plate")
+    static let vignetteType = String(localized: "vignette_type")
+    static let shireVignette = String(localized: "shire_vignette")
+    static let countryVignette = String(localized: "country_vignette")
     
     static func price(_ amount: String) -> String {
         let format = String(localized: "price_format")
