@@ -39,7 +39,3 @@ public struct YettelLabel: View {
             .multilineTextAlignment(multilineTextAlignment)
     }
 }
-
-#Preview {
-    YettelLabel(text: "Hello!")
-}

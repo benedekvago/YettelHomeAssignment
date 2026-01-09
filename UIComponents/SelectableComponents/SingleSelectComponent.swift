@@ -29,8 +29,15 @@ public struct SingleSelectComponent: View {
         }
         .overlay {
             let borderColor = isSelected ? ComponentColors.primaryColor : ComponentColors.secondaryColor
-            RoundedRectangle(cornerRadius: 8)
-                                .stroke(borderColor, lineWidth: 2)
+            RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                .stroke(borderColor, lineWidth: Constants.borderWidth)
         }
+    }
+}
+
+private extension SingleSelectComponent {
+    enum Constants {
+        static let cornerRadius: CGFloat = 8
+        static let borderWidth: CGFloat = 2
     }
 }

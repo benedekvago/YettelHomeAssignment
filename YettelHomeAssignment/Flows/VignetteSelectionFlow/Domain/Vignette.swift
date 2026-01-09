@@ -16,7 +16,7 @@ struct Vignette: Hashable {
     }
     
     enum ShireType: Hashable {
-        case backKiskun
+        case bacsKiskun
         case baranya
         case bekes
         case borsodAbaujZemplen

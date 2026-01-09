@@ -21,9 +21,9 @@ public struct YettelButton: View {
     public var body: some View {
         Button (action: action) {
             Text(title)
-                .padding(16)
+                .padding(Constants.padding)
                 .frame(maxWidth: .infinity)
-                .font(.system(size: 16))
+                .font(.system(size: Constants.fontSize))
                 .fontWeight(.semibold)
         }
         .yettelButtonStyle(style)
@@ -31,8 +31,9 @@ public struct YettelButton: View {
     }
 }
 
-#Preview {
-    YettelButton(title: "Vásárlás", style: .secondary) {
-        
+private extension YettelButton {
+    enum Constants {
+        static let fontSize: CGFloat = 16
+        static let padding: CGFloat = 16
     }
 }

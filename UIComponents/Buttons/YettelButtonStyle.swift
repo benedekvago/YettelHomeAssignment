@@ -45,7 +45,7 @@ public struct YettelButtonStyle: ButtonStyle {
             .background(buttonConfiguration.background)
             .overlay {
                 if let borderColor = buttonConfiguration.borderColor {
-                    Capsule().stroke(borderColor, lineWidth: 2)
+                    Capsule().stroke(borderColor, lineWidth: Constants.borderWidth)
                 }
             }
     }
@@ -54,5 +54,11 @@ public struct YettelButtonStyle: ButtonStyle {
 public extension View {
     func yettelButtonStyle(_ style: YettelButtonStyle.Style) -> some View {
         self.buttonStyle(YettelButtonStyle(buttonStyle: style))
+    }
+}
+
+private extension YettelButtonStyle {
+    enum Constants {
+        static let borderWidth: CGFloat = 2
     }
 }

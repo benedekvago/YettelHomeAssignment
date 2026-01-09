@@ -25,9 +25,3 @@ public struct YettelCard<Content>: View where Content: View {
             .cornerRadius(cornerRadius)
     }
 }
-
-#Preview {
-    YettelCard {
-        Text("asd")
-    }
-}

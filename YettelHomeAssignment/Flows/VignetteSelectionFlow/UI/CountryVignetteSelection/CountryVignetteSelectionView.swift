@@ -13,13 +13,13 @@ struct CountryVignetteSelectionView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 12) {
+            VStack(spacing: Constants.smallSpacing) {
                 YettelCard {
                     HStack {
                         Image("carIcon")
                             .renderingMode(.template)
-                            .frame(width: 24, height: 24)
-                            .padding(.horizontal, 16)
+                            .frame(width: Constants.iconSize, height: Constants.iconSize)
+                            .padding(.horizontal, Constants.normalSpacing)
                         VStack(alignment: .leading) {
                             YettelLabel(
                                 text: viewModel.vehicle?.plate ?? "",
@@ -27,7 +27,7 @@ struct CountryVignetteSelectionView: View {
                             )
                             YettelLabel(
                                 text: viewModel.vehicle?.owner ?? "",
-                                fontSize: 12,
+                                fontSize: Constants.smallFontSize,
                                 fontWeight: .light,
                             )
                         }
@@ -39,7 +39,7 @@ struct CountryVignetteSelectionView: View {
                     VStack(alignment: .leading) {
                         YettelLabel(
                             text: "Országos matricák",
-                            fontSize: 20,
+                            fontSize: Constants.largeFontSize,
                             fontWeight: .bold
                         )
 
@@ -67,11 +67,11 @@ struct CountryVignetteSelectionView: View {
                         viewModel.openShireView()
                     }
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, Constants.normalSpacing)
         }
         .background(Color("background"))
-        .safeAreaInset(edge: .top) {               // 👈 attach header here
-            YettelHeader {
+        .safeAreaInset(edge: .top) {
+            YettelHeader(title: "E-matrica") {
                 viewModel.popView()
             }
         }
@@ -80,5 +80,15 @@ struct CountryVignetteSelectionView: View {
                 await viewModel.loadVignettes()
             }
         }
+    }
+}
+
+private extension CountryVignetteSelectionView {
+    enum Constants {
+        static let smallSpacing: CGFloat = 12
+        static let normalSpacing: CGFloat = 16
+        static let smallFontSize: CGFloat = 12
+        static let largeFontSize: CGFloat = 20
+        static let iconSize: CGFloat = 24
     }
 }

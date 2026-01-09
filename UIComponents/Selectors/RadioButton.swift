@@ -28,8 +28,14 @@ struct RadioButton: View {
             if isSelected {
                 Circle()
                     .fill(selectedColor)
-                    .frame(width: 16, height: 16)
+                    .frame(width: Constants.circleSize, height: Constants.circleSize)
             }
         }
+    }
+}
+
+private extension RadioButton {
+    enum Constants {
+        static let circleSize: CGFloat = 16
     }
 }

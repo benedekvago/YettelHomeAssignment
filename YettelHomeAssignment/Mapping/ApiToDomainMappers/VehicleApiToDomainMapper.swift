@@ -9,7 +9,6 @@ import ApiClient
 
 extension Operations.getVehicleInfo.Output.Ok {
     func createDomainModel() -> Vehicle {
-        // This function should be better
         let body = try! self.body.json
 
         let name = body.name!
@@ -17,7 +16,7 @@ extension Operations.getVehicleInfo.Output.Ok {
         let type = if body._type == "CAR" {
             Vehicle.VehicleType.car
         } else {
-            Vehicle.VehicleType.car
+            Vehicle.VehicleType.unknown
         }
         return Vehicle(owner: name, plate: plate, type: type)
     }

@@ -15,20 +15,22 @@ public struct NavigationBox: View {
     }
     
     public var body: some View {
-        YettelCard(cornerRadius: 16) {
+        YettelCard(cornerRadius: Constants.cornerRadius) {
             HStack {
                 YettelLabel(text: title)
                 Spacer()
                 ComponentIcons.rightArrowIcon
                     .renderingMode(.template)
                     .foregroundColor(ComponentColors.primaryColor)
-                    .frame(width: 12, height: 12)
+                    .frame(width: Constants.iconSize, height: Constants.iconSize)
             }
         }
     }
 }
 
-#Preview {
-    NavigationBox(title: "Éves vármegyei matricák")
-        .background(Color.blue)
+private extension NavigationBox {
+    enum Constants {
+        static let cornerRadius: CGFloat = 16
+        static let iconSize: CGFloat = 12
+    }
 }

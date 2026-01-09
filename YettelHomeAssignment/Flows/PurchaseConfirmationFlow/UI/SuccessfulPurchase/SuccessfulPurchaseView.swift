@@ -16,13 +16,13 @@ struct SuccessfulPurchaseView: View {
         ZStack {
             Color("successBackground")
                 .ignoresSafeArea()
-            VStack(spacing: 32) {
+            VStack(spacing: Constants.largeSpacing) {
                 Spacer()
                 HStack {
-                    YettelLabel(text: "A matricákat sikeresen kifizetted!", fontSize: 40, fontWeight: .bold, multilineTextAlignment: .leading)
+                    YettelLabel(text: "A matricákat sikeresen kifizetted!", fontSize: Constants.extraLargeFontSize, fontWeight: .bold, multilineTextAlignment: .leading)
                     Spacer()
                 }
-                .padding(.horizontal, 32)
+                .padding(.horizontal, Constants.largeSpacing)
                 HStack {
                     Spacer()
                     Image("pictogram")
@@ -32,7 +32,7 @@ struct SuccessfulPurchaseView: View {
                         await viewModel.onOkTapped()
                     }
                 }
-                .padding(.horizontal, 32)
+                .padding(.horizontal, Constants.largeSpacing)
             }
             VStack {
                 Image("confetti")
@@ -43,5 +43,12 @@ struct SuccessfulPurchaseView: View {
             }
             .ignoresSafeArea()
         }
+    }
+}
+
+private extension SuccessfulPurchaseView {
+    enum Constants {
+        static let largeSpacing: CGFloat = 32
+        static let extraLargeFontSize: CGFloat = 40
     }
 }

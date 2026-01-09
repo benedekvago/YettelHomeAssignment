@@ -5,6 +5,4 @@
 //  Created by Vágó Benedek on 2026. 01. 07..
 //
 
-protocol PurchaseConfirmationParentCoordinatorProtocol: ParentFlowProtocol {
-    
-}
+protocol PurchaseConfirmationParentCoordinatorProtocol: ParentFlowProtocol {}

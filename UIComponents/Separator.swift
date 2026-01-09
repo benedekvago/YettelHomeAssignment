@@ -14,11 +14,13 @@ public struct Separator: View {
     public var body: some View {
         Rectangle()
             .fill(ComponentColors.secondaryColor)
-            .frame(height: 1)
+            .frame(height: Constants.separatorHeight)
             .frame(maxWidth: .infinity)
     }
 }
 
-#Preview {
-    Separator()
+private extension Separator {
+    enum Constants {
+        static let separatorHeight: CGFloat = 1
+    }
 }

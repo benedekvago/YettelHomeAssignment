@@ -8,6 +8,7 @@
 struct Vehicle {
     enum VehicleType {
         case car
+        case unknown
     }
 
     let owner: String

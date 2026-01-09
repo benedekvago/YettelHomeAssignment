@@ -48,8 +48,14 @@ public struct Checkbox: View {
                 ComponentIcons.checkIcon
                     .renderingMode(.template)
                     .foregroundColor(ComponentColors.darkGray)
-                    .frame(width: 12, height: 12)
+                    .frame(width: Constants.iconSize, height: Constants.iconSize)
             }
         }
+    }
+}
+
+private extension Checkbox {
+    enum Constants {
+        static let iconSize: CGFloat = 12
     }
 }
