@@ -9,7 +9,6 @@ import SwiftUI
 import UIComponents
 
 struct SuccessfulPurchaseView: View {
-    // This could be a protocol for this view
     @ObservedObject var viewModel: PurchaseConfirmationFlowViewModel
 
     var body: some View {
@@ -19,7 +18,7 @@ struct SuccessfulPurchaseView: View {
             VStack(spacing: Constants.largeSpacing) {
                 Spacer()
                 HStack {
-                    YettelLabel(text: "A matricákat sikeresen kifizetted!", fontSize: Constants.extraLargeFontSize, fontWeight: .bold, multilineTextAlignment: .leading)
+                    YettelLabel(text: Localizable.successfulPayment, fontSize: Constants.extraLargeFontSize, fontWeight: .bold, multilineTextAlignment: .leading)
                     Spacer()
                 }
                 .padding(.horizontal, Constants.largeSpacing)
@@ -27,7 +26,7 @@ struct SuccessfulPurchaseView: View {
                     Spacer()
                     Image("pictogram")
                 }
-                YettelButton(title: "Rendben", style: .primary) {
+                YettelButton(title: Localizable.ok, style: .primary) {
                     Task {
                         await viewModel.onOkTapped()
                     }

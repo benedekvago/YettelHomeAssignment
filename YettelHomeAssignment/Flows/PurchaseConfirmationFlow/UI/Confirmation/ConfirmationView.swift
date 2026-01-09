@@ -15,14 +15,14 @@ struct ConfirmationView: View {
 
     var body: some View {
         VStack(spacing: Constants.largeSpacing) {
-            YettelHeader(title: "E-matrica") {
+            YettelHeader(title: Localizable.headerTitle) {
                 viewModel.popView()
             }
             ScrollView {
                 VStack(alignment: .leading, spacing: Constants.largeSpacing) {
                     Group {
                         VStack(spacing: Constants.normalSpacing) {
-                            YettelLabel(text: "Vásárlás megerősítése", fontSize: Constants.largeFontSize, fontWeight: .bold)
+                            YettelLabel(text: Localizable.confirmPurcahse, fontSize: Constants.largeFontSize, fontWeight: .bold)
                             Separator()
                             ForEach(viewModel.purchaseInfo, id: \.self) { purchaseInfo in
                                 HStack {
@@ -38,13 +38,13 @@ struct ConfirmationView: View {
                                 HStack {
                                     YettelLabel(text: purchaseItem.name, fontSize: Constants.normalFontSize, fontWeight: .bold)
                                     Spacer()
-                                    YettelLabel(text: "\(purchaseItem.price) Ft", fontSize: Constants.smallFontSize, fontWeight: .light)
+                                    YettelLabel(text: Localizable.price(purchaseItem.price.formatted()), fontSize: Constants.smallFontSize, fontWeight: .light)
                                 }
                             }
                             HStack {
-                                YettelLabel(text: "Rendszerhasználati díj", fontSize: Constants.smallFontSize, fontWeight: .light)
+                                YettelLabel(text: Localizable.serviceFee, fontSize: Constants.smallFontSize, fontWeight: .light)
                                 Spacer()
-                                YettelLabel(text: "\(viewModel.serviceFee) Ft", fontSize: Constants.smallFontSize, fontWeight: .light)
+                                YettelLabel(text: Localizable.price(viewModel.serviceFee.formatted()), fontSize: Constants.smallFontSize, fontWeight: .light)
                             }
                         }
                     }
@@ -52,16 +52,16 @@ struct ConfirmationView: View {
                     Separator()
                     Group {
                         VStack(alignment: .leading, spacing: Constants.smallSpacing) {
-                            YettelLabel(text: "Fizetendő összeg", fontSize: Constants.extraSmallFontSize, fontWeight: .bold)
-                            YettelLabel(text: "\(viewModel.price) Ft", fontSize: Constants.extraLargeFontSize, fontWeight: .bold)
+                            YettelLabel(text: Localizable.sumToPay, fontSize: Constants.extraSmallFontSize, fontWeight: .bold)
+                            YettelLabel(text: Localizable.price(viewModel.price.formatted()), fontSize: Constants.extraLargeFontSize, fontWeight: .bold)
                         }
                     }
                     .padding(.horizontal, Constants.normalSpacing)
                     VStack(spacing: Constants.normalSpacing) {
-                        YettelButton(title: "Tovább", style: .primary) {
+                        YettelButton(title: Localizable.next, style: .primary) {
                             viewModel.confirmPurchase()
                         }
-                        YettelButton(title: "Mégsem", style: .secondary) {
+                        YettelButton(title: Localizable.cancel, style: .secondary) {
                             Task {
                                 await viewModel.onOkTapped()
                             }

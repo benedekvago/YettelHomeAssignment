@@ -10,7 +10,6 @@ import Foundation
 
 class PurchaseConfirmationFlowViewModel: ObservableObject {
     private let purchaseConfirmationService: PurchaseConfirmationServiceProtocol
-    // Should be a different protocol
     private let coordinator: any PurchaseConfirmationFlowCoordinatorProtocol
     
     @Published var purchaseInfo: [PurchaseInfo]

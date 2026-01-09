@@ -9,10 +9,6 @@ import SwiftUI
 
 @main
 struct YettelHomeAssignmentApp: App {
-    init() {
-        AppContainer.register()
-    }
-    
     var body: some Scene {
         WindowGroup {
             RootView()

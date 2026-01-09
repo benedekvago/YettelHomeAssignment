@@ -5,6 +5,7 @@
 //  Created by Vágó Benedek on 2026. 01. 08..
 //
 
+import Factory
 import SwiftUI
 
 final class VignetteSelectionFlowCoordinator: VignetteSelectionFlowCoordinatorProtocol {
@@ -12,8 +13,7 @@ final class VignetteSelectionFlowCoordinator: VignetteSelectionFlowCoordinatorPr
     private var parentCoordinator: VignetteSelectionParentCoordinatorProtocol!
     
     func start(vignetteSelectionService: VignetteSelectionServiceProtocol, parentCoordinator: VignetteSelectionParentCoordinatorProtocol) {
-        // Register dependencies
-        viewModel = VignetteSelectionFlowViewModel(vignetteSelectionService: vignetteSelectionService, coordinator: self)
+        viewModel = Container.shared.vignetteSelectionFlowViewModel((vignetteSelectionService, self))
         self.parentCoordinator = parentCoordinator
     }
     

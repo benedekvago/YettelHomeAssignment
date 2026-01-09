@@ -14,7 +14,7 @@ struct ShireVignetteSelectionView: View {
 
     var body: some View {
         VStack(spacing: Constants.largeSpacing) {
-            YettelHeader(title: "E-matrica") {
+            YettelHeader(title: Localizable.headerTitle) {
                 viewModel.popView()
             }
             ScrollView {
@@ -23,7 +23,7 @@ struct ShireVignetteSelectionView: View {
                         groupView
                     }
                     .padding(.horizontal, Constants.normalSpacing)
-                    YettelButton(title: "Vásárlás", style: .primary) {
+                    YettelButton(title: Localizable.pay, style: .primary) {
                         viewModel.startShirePurcahseConfirmationFlow()
                     }
                 }
@@ -34,12 +34,12 @@ struct ShireVignetteSelectionView: View {
     
     @ViewBuilder
     var groupView: some View {
-        YettelLabel(text: "Éves vármegyei matricák", fontSize: Constants.normalFontSize, fontWeight: .bold)
+        YettelLabel(text: Localizable.shireVignettes, fontSize: Constants.normalFontSize, fontWeight: .bold)
             .padding(.horizontal, Constants.normalSpacing)
         if let shireVignettes = viewModel.shireVignettes {
             VStack(spacing: Constants.normalSpacing) {
                 ForEach(shireVignettes, id: \.self) { vignette in
-                    MultiSelectComponent(isSelected: viewModel.selectedShireVignettes.contains(vignette), title: vignette.name, additionalInfo: "\(vignette.price) Ft")
+                    MultiSelectComponent(isSelected: viewModel.selectedShireVignettes.contains(vignette), title: vignette.name, additionalInfo: Localizable.price(vignette.price.formatted()))
                         .onTapGesture {
                             viewModel.didTapShireVignette(vignette: vignette)
                         }
@@ -47,9 +47,9 @@ struct ShireVignetteSelectionView: View {
             }
         }
         Separator()
-        VStack(spacing: Constants.smallSpacing) {
-            YettelLabel(text: "Fizetendő összeg", fontSize: Constants.smallFontSize, fontWeight: .bold)
-            YettelLabel(text: "\(viewModel.shireVignettesPrice) Ft", fontSize: Constants.largeFontSize, fontWeight: .bold)
+        VStack(alignment: .leading, spacing: Constants.smallSpacing) {
+            YettelLabel(text: Localizable.sumToPay, fontSize: Constants.smallFontSize, fontWeight: .bold)
+            YettelLabel(text: Localizable.price(viewModel.shireVignettesPrice.formatted()), fontSize: Constants.largeFontSize, fontWeight: .bold)
         }
     }
 }

@@ -5,17 +5,18 @@
 //  Created by Vágó Benedek on 2026. 01. 08..
 //
 
+import Factory
 import SwiftUI
 
 final class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
     
-    private let vignetteSelectionFlow: any VignetteSelectionFlowCoordinatorProtocol = VignetteSelectionFlowCoordinator()
-    private let purchaseConfimationFlow: any PurchaseConfirmationFlowCoordinatorProtocol = PurchaseConfirmationFlowCoordinator()
+    private let vignetteSelectionFlow: any VignetteSelectionFlowCoordinatorProtocol = Container.shared.vignetteSelectionFlowCoordinator()
+    private let purchaseConfimationFlow: any PurchaseConfirmationFlowCoordinatorProtocol = Container.shared.purchaseConfirmationFlowCoordinator()
     
     func start() {
         vignetteSelectionFlow.start(
-            vignetteSelectionService: VignetteSelectionService(),
+            vignetteSelectionService: Container.shared.vignetteSelectionService(),
             parentCoordinator: self
         )
         if path.isEmpty {
@@ -53,7 +54,7 @@ extension AppCoordinator: VignetteSelectionParentCoordinatorProtocol {
         purchaseConfimationFlow.start(
             purchaseInfo: purchaseInfo,
             purchaseItems: purchaseItems,
-            purchaseConfirmationService: PurchaseConfirmationService(),
+            purchaseConfirmationService: Container.shared.purchaseConfirmationService(),
             parentCoordinator: self
         )
         startPurchaseConfimationFlow()

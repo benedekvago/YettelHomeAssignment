@@ -10,6 +10,7 @@
 		FF30A5812F0C091400C748C3 /* ApiClient in Frameworks */ = {isa = PBXBuildFile; productRef = FF30A5802F0C091400C748C3 /* ApiClient */; };
 		FF30A5F42F0EABE300C748C3 /* UIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF30A5DB2F0EAADD00C748C3 /* UIComponents.framework */; };
 		FF30A5F52F0EABE300C748C3 /* UIComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF30A5DB2F0EAADD00C748C3 /* UIComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF30A7222F11268900C748C3 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = FF30A7212F11268900C748C3 /* Factory */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF30A7222F11268900C748C3 /* Factory in Frameworks */,
 				FF30A5F42F0EABE300C748C3 /* UIComponents.framework in Frameworks */,
 				FF30A5812F0C091400C748C3 /* ApiClient in Frameworks */,
 			);
@@ -133,6 +135,7 @@
 			name = YettelHomeAssignment;
 			packageProductDependencies = (
 				FF30A5802F0C091400C748C3 /* ApiClient */,
+				FF30A7212F11268900C748C3 /* Factory */,
 			);
 			productName = YettelHomeAssignment;
 			productReference = FF12B0D02F0BD00000CD46DB /* YettelHomeAssignment.app */;
@@ -180,16 +183,17 @@
 				};
 			};
 			buildConfigurationList = FF12B0CB2F0BD00000CD46DB /* Build configuration list for PBXProject "YettelHomeAssignment" */;
-			developmentRegion = en;
+			developmentRegion = hu;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				hu,
 			);
 			mainGroup = FF12B0C72F0BD00000CD46DB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FF30A57F2F0C091400C748C3 /* XCLocalSwiftPackageReference "../ApiClient" */,
+				FF30A7202F11267700C748C3 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FF12B0D12F0BD00000CD46DB /* Products */;
@@ -305,6 +309,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -362,6 +367,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -535,10 +541,26 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		FF30A7202F11267700C748C3 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		FF30A5802F0C091400C748C3 /* ApiClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ApiClient;
+		};
+		FF30A7212F11268900C748C3 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF30A7202F11267700C748C3 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

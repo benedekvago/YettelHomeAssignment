@@ -20,7 +20,7 @@ struct Vignette: Hashable {
         case baranya
         case bekes
         case borsodAbaujZemplen
-        case bcsongrád
+        case csongrád
         case fejer
         case gyorMosonSopron
         case hajduBihar

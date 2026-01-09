@@ -5,6 +5,7 @@
 //  Created by Vágó Benedek on 2026. 01. 08..
 //
 
+import Factory
 import SwiftUI
 
 final class PurchaseConfirmationFlowCoordinator: PurchaseConfirmationFlowCoordinatorProtocol {
@@ -18,12 +19,12 @@ final class PurchaseConfirmationFlowCoordinator: PurchaseConfirmationFlowCoordin
         purchaseConfirmationService: PurchaseConfirmationServiceProtocol,
         parentCoordinator: PurchaseConfirmationParentCoordinatorProtocol
     ) {
-        viewModel = PurchaseConfirmationFlowViewModel(
+        viewModel = Container.shared.purchaseConfirmationFlowViewModel((
             purchaseInfo: purchaseInfo,
             purchaseItems: purchaseItems,
             purchaseConfirmationService: purchaseConfirmationService,
             coordinator: self
-        )
+        ))
         self.parentCoordinator = parentCoordinator
     }
     
